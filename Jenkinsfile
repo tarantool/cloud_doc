@@ -16,6 +16,7 @@ stage("Build")
             env.USER = "knazarov"
             env.DEST_DIR = "/var/www/tarantool.io"
 
+
             sh "mkdir -p ~/.ssh"
             sh "chmod 700 ~/.ssh"
             sh "ssh-keyscan $SERVER > ~/.ssh/known_hosts"
