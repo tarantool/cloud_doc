@@ -20,7 +20,7 @@ stage("Build")
             sh "chmod 700 ~/.ssh"
             sh "ssh-keyscan $SERVER > ~/.ssh/known_hosts"
             sh "chmod 600 ~/.ssh/*"
-            sh "rsync -Pav output/* $USER@$SERVER:$DEST_DIR"
+            sh "rsync -Pav build/* $USER@$SERVER:$DEST_DIR"
         }
     }
 }
