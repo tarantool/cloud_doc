@@ -5,7 +5,7 @@ stage("Build")
     node {
         checkout scm
 
-        docker.image('tarantool/build:centos7').inside('--user root:root') {
+        docker.image('tarantool/build:centos7').inside() {
             sh "sudo pip install -r requirements.txt --upgrade"
             sh "make html"
             sh "tar -C build -cvzf doc_html.tar.gz ."
