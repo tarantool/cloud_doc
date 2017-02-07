@@ -11,6 +11,7 @@ stage("Build")
             sh "tar -C build/html -cvzf doc_html.tar.gz ."
         }
 
+
         sshagent(['3b02c16d-d8fc-4082-ba2f-38e48d8a4993']) {
             env.SERVER = "try.tarantool.org"
             env.USER = "knazarov"
