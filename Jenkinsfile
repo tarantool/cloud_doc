@@ -8,7 +8,7 @@ stage("Build")
         docker.image('tarantool/build:centos7').inside('--user root:root') {
             sh "sudo pip install -r requirements.txt --upgrade"
             sh "make html"
-            sh "tar -C build -cvzf doc_html.tar.gz ."
+            sh "tar -C build/html -cvzf doc_html.tar.gz ."
         }
 
 
@@ -21,7 +21,7 @@ stage("Build")
             sh "chmod 700 ~/.ssh"
             sh "ssh-keyscan $SERVER > ~/.ssh/known_hosts"
             sh "chmod 600 ~/.ssh/*"
-            sh "rsync -Pav build/* $USER@$SERVER:$DEST_DIR"
+            sh "rsync -Pav build/html/* $USER@$SERVER:$DEST_DIR"
         }
     }
 }
