@@ -15,7 +15,7 @@ stage("Build")
         sshagent(['3b02c16d-d8fc-4082-ba2f-38e48d8a4993']) {
             env.SERVER = "try.tarantool.org"
             env.USER = "knazarov"
-            env.DEST_DIR = "/var/www/tarantool.io"
+            env.DEST_DIR = "/var/www/tarantool.io.doc"
 
             sh "mkdir -p ~/.ssh"
             sh "chmod 700 ~/.ssh"
